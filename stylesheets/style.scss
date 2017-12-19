@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700');
+strong { 
+	font-weight: bolder
+}
+html {
+	font-size: 15px;
+}
+body {
+	color: #666;
+	font-family: 'Ubuntu Mono', monospace;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bolder;
+}
+h1 {
+	font-size: 30px;
+	font-weight: 700;
+	small {
+		font-size: 18px;
+		color: #888;
+	}
+	@media all and (max-width: 767px) {
+		font-size: 24px
+	}
+}
+h6 {
+	font-size: 14px;
+}
+a:hover,
+a:active,
+a:visited,
+a:focus {
+	text-decoration: none;
+}
+ul {
+	padding: 0;
+}
+li {
+	padding: 0;
+	list-style: none;
+}
+@media all and (min-width:767px) {
+	.container-fluid {
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+}
+	
+.welcomeimage {
+	border: 1px solid #ddd;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding: 10px;
+	@media all and (max-width: 1000px) {
+		margin-top: 15px
+	}
+}
+.welcomecontent {
+	p {
+		margin-bottom: 0
+	}
+}
+
+.menu-row {
+	border-top: 1px solid #dedede;
+	margin-top: 30px;
+	padding-top: 30px;
+	padding-bottom: 15px;
+	& > div {
+	}
+}
+
+.tag-list {
+	font-size:14px;
+	padding: 0;
+	li {
+		display: inline-block;
+		margin: -0.5px;
+		padding: 7px 8px 7px;
+		border: 1px solid rgba(127,127,127, 0.1);
+		border-radius: 2px;
+		list-style: none;
+		p {
+			margin-bottom: 0;
+		}
+		&:hover {
+			background: rgba(127,127,127, 0.1);
+		}
+	}
+	span {
+		font-weight: 300;
+		border: 1px solid rgba(127,127,127, 0.1);
+		vertical-align: bottom;
+	}
+}
+
+.posts-row {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	background: #444;
+	color: #ccc;
+	a {
+		color: white;
+	}
+
+}
+
+.posts-list {
+	margin: 0;
+	padding: 0;
+	& > li {
+		padding-top: 30px;
+		padding-bottom: 30px;
+		border-bottom: 1px solid #888;
+	}
+
+}
