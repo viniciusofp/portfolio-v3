@@ -61,7 +61,8 @@ li {
   height: 300px;
   background-image: url("../files/bg.jpg");
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  color: #cacaca; }
   .main-header h1 {
     font-family: 'Ubuntu Mono', monospace;
     color: white; }
@@ -118,7 +119,10 @@ li {
   color: #00778c; }
   .posts-row h1 {
     color: #b2f5ff;
-    transition: 0.3s; }
+    transition: 0.3s;
+    border-bottom: 1px solid #32b4cc;
+    padding-bottom: 15px;
+    display: inline-block; }
 
 .posts-list {
   margin: 0;
@@ -129,7 +133,6 @@ li {
     padding-top: 60px; }
   .posts-list .tag-list {
     padding-bottom: 30px;
-    border-top: 1px solid #32b4cc;
     padding-top: 15px; }
 
 .tags-label {
@@ -208,5 +211,9 @@ li {
   .cv h5 {
     color: #E06E6A;
     font-size: 14px; }
+
+.footer {
+  padding-top: 30px;
+  padding-bottom: 30px; }
 
 /*# sourceMappingURL=style.css.map */

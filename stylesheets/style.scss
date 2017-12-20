@@ -67,6 +67,7 @@ li {
 	background-image: url('../files/bg.jpg');
 	background-size: cover;
 	background-position: center;
+	color: #cacaca;
 	a{
 	}
 	h1 {
@@ -142,6 +143,9 @@ li {
 	h1 {
 		color: #b2f5ff;
 		transition: 0.3s;
+		border-bottom: 1px solid #32b4cc;
+		padding-bottom: 15px;
+		display: inline-block;
 	}
 
 }
@@ -157,7 +161,6 @@ li {
 	}
 	.tag-list {
 		padding-bottom: 30px;
-		border-top: 1px solid #32b4cc;
 		padding-top: 15px
 
 	}
@@ -258,4 +261,8 @@ li {
 		color: #E06E6A;
 		font-size: 14px;
 	}
+}
+.footer {
+	padding-top: 30px;
+	padding-bottom: 30px;
 }

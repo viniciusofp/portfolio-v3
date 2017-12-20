@@ -31,6 +31,13 @@ app.config(function($routeProvider, $locationProvider) {
     templateUrl: './cv.html',
     controller: 'CV'
   })
+   .when('/contato', {
+    templateUrl: './contato.html',
+    controller: 'CV'
+  })
+    .otherwise({
+    redirectTo: '/'
+  });
 })
 
 app.factory('wp', ['$q', '$resource', function($q, $resource) {
