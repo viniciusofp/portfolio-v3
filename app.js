@@ -1,3 +1,5 @@
+
+
 var api = 'https://viniciusofp.com.br/wp-json/wp/v2/'
 var app = angular.module('app', ['ngRoute', 'ngResource', 'ngSanitize']);
 
@@ -124,7 +126,6 @@ app.factory('wp', ['$q', '$resource', function($q, $resource) {
 }])
 
 app.controller('Ctrl', ['$scope', 'wp', function($scope, wp) {
-  $scope.title = 'vinícius pereira'
   $scope.allPosts = wp.queryPosts();
   $scope.posts = $scope.allPosts;
   $scope.tags = wp.queryTags();
@@ -154,24 +155,27 @@ app.controller('Ctrl', ['$scope', 'wp', function($scope, wp) {
         } else {
           setTimeout(function(){
           setTags();
-          },1500)
+          },3000)
         }
       }
     },1500)
   }
 
-
-  $scope.scrollTop = function(hash) {
-    function findPos(obj) {
-      var curtop = 0;
-      if (obj.offsetParent) {
-          do {
-              curtop += obj.offsetTop;
-          } while (obj = obj.offsetParent);
-      return [curtop];
-      }
+  function findPos(obj) {
+    var curtop = 0;
+    if (obj.offsetParent) {
+        do {
+            curtop += obj.offsetTop;
+        } while (obj = obj.offsetParent);
+    return [curtop];
     }
+  }
+  $scope.scrollTop = function() {
     window.scroll(0,findPos(document.getElementById("posttop")));
+  }
+  $scope.scrollMenu = function() {
+    window.scroll(0,findPos(document.getElementById("menutop")));
+    window.history.back();
   }
 
   $scope.activateTag = function($event) {
@@ -186,7 +190,6 @@ app.controller('Home', ['$scope', 'wp', function($scope, wp) {
   $scope.posts = $scope.allPosts
 }])
 app.controller('Cat', ['$scope', 'wp', '$routeParams', function($scope, wp, $routeParams) {
-  $scope.title = $routeParams.slug
   $scope.section = wp.getCategory($routeParams.slug);
   var setPosts = function() {
     var catPosts = []
@@ -211,7 +214,7 @@ app.controller('Cat', ['$scope', 'wp', '$routeParams', function($scope, wp, $rou
         } else {
           setTimeout(function(){
           setPosts();
-          },1500)
+          },3000)
         }
       }
     },1500)
@@ -244,7 +247,7 @@ app.controller('Tag', ['$scope', 'wp', '$routeParams', function($scope, wp, $rou
         } else {
           setTimeout(function(){
           setPosts();
-          },1500)
+          },3000)
         }
       }
     },1500)
@@ -274,9 +277,9 @@ app.controller('Post', ['$scope', 'wp', '$routeParams', function($scope, wp, $ro
         } else {
           setTimeout(function(){
           setPost();
-          },2000)
+          },3000)
         }
       }
-    },2000)
+    },1500)
   }
 }])

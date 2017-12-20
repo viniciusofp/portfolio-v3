@@ -1,3 +1,5 @@
+@import 'slick';
+@import 'slick-theme';
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:500');
 
@@ -8,6 +10,7 @@ html {
 	font-size: 15px;
 }
 body {
+	padding-top: 30px;
 	color: #666;
 	font-family: 'Ubuntu Mono', monospace;
 }
@@ -150,8 +153,9 @@ li {
 	background: #fff;
 	text-align: center;
 	img {
-		max-width: 100%;
-		height: auto;
+		max-width: 100%!important;
+		height: auto!important;
+		margin-bottom: 50px;
 	}
 	padding-bottom: 60px;
 	.tag-list {
@@ -165,6 +169,7 @@ li {
 }
 .tags-label {
 	margin-top: 30px;
+	opacity: .5;
 }
 .post-content {
 	padding-top: 30px;
