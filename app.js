@@ -10,19 +10,19 @@ app.filter('toTrusted', function ($sce) {
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
    .when('/', {
-    templateUrl: '/postlist.html',
+    templateUrl: './postlist.html',
     controller: 'Home',
   })
    .when('/cat/:slug/:id', {
-    templateUrl: '/postlist.html',
+    templateUrl: './postlist.html',
     controller: 'Cat'
   })
    .when('/tag/:slug/:id', {
-    templateUrl: '/postlist.html',
+    templateUrl: './postlist.html',
     controller: 'Tag'
   })
    .when('/post/:slug', {
-    templateUrl: '/singlepost.html',
+    templateUrl: './singlepost.html',
     controller: 'Post'
   })
 })
