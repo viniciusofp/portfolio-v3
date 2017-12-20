@@ -145,7 +145,7 @@ li {
   .post-container .tag-list {
     border-bottom: 1px solid #dedede;
     display: inline-block;
-    padding-bottom: 15; }
+    padding-bottom: 15px; }
 
 .post-title {
   color: #32b4cc; }
@@ -163,5 +163,23 @@ li {
     .post-content p.lead {
       font-weight: bolder;
       font-family: 'Ubuntu', sans-serif; }
+
+.list-inline li {
+  display: inline; }
+
+.cv {
+  padding-top: 30px; }
+  .cv h2 {
+    font-family: 'Unbuntu Mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    display: inline-block;
+    border-bottom: 2px solid #32b4cc;
+    padding-bottom: 5px;
+    margin-bottom: 15px; }
+  .cv h5 {
+    color: #E06E6A;
+    font-size: 14px; }
 
 /*# sourceMappingURL=style.css.map */

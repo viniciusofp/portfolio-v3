@@ -178,7 +178,7 @@ li {
 	.tag-list {
 		border-bottom: 1px solid #dedede;
     display: inline-block;
-    padding-bottom: 15;
+    padding-bottom: 15px;
 	}
 }
 .post-title {
@@ -200,4 +200,28 @@ li {
 		}
 	}
 
+}
+
+.list-inline {
+	li {
+		display: inline
+	}
+}
+
+.cv {
+	padding-top: 30px;
+	h2 {
+		font-family: 'Unbuntu Mono', monospace;
+		font-size: 20px;
+		font-weight: 700;
+		color: #000;
+		display: inline-block;
+		border-bottom: 2px solid #32b4cc;
+		padding-bottom: 5px;
+		margin-bottom: 15px;
+	}
+	h5 {
+		color: #E06E6A;
+		font-size: 14px;
+	}
 }

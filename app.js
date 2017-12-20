@@ -27,6 +27,10 @@ app.config(function($routeProvider, $locationProvider) {
     templateUrl: './singlepost.html',
     controller: 'Post'
   })
+   .when('/cv', {
+    templateUrl: './cv.html',
+    controller: 'CV'
+  })
 })
 
 app.factory('wp', ['$q', '$resource', function($q, $resource) {
