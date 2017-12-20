@@ -8,7 +8,6 @@ html {
 	font-size: 15px;
 }
 body {
-	padding-top: 30px;
 	color: #666;
 	font-family: 'Ubuntu Mono', monospace;
 }
@@ -62,7 +61,26 @@ li {
 }
 
 .main-header {
+	position: relative;
+	padding-top: 30px;
 	height: 300px;
+	background-image: url('../files/bg.jpg');
+	background-size: cover;
+	background-position: center;
+	a{
+	}
+	h1 {
+		font-family: 'Ubuntu Mono', monospace;
+		color: white;
+	}
+	.meta {
+		position: absolute;
+		bottom: 30px;
+		left: 45px;
+		@media all and (max-width: 767px) {
+			left: 0px;
+		}
+	}
 }
 
 .welcomeimage {
@@ -83,7 +101,6 @@ li {
 .menu-row {
 	border-top: 1px solid #dedede;
 	border-bottom: 1px solid #dedede;
-	margin-top: 30px;
 	padding-top: 30px;
 	padding-bottom: 15px;
 	background: #f0f0f0;
@@ -118,12 +135,13 @@ li {
 
 
 .posts-row {
-	padding-top: 30px;
+	padding-top: 60px;
 	padding-bottom: 60px;
   background: #182c2f;
   color: #00778c;
 	h1 {
 		color: #b2f5ff;
+		transition: 0.3s;
 	}
 
 }
@@ -131,6 +149,9 @@ li {
 .posts-list {
 	margin: 0;
 	padding: 0;
+	h1:hover {
+		color: #fff;
+	}
 	& > li {
 		padding-top: 60px;
 	}
@@ -152,6 +173,13 @@ li {
 
 .breadcrumbs {
 	margin-top: 15px;
+}
+
+.breadcrumbs-post-container {
+	padding-top: 60px;
+	padding-bottom: 60px;
+  background: #182c2f;
+  color: #00778c;
 }
 
 .limpar-filtros-btn {
@@ -188,8 +216,14 @@ li {
 	margin-top: 30px;
 	opacity: .5;
 }
+.post-header{
+	margin-top: -43.5px;
+	h1 {
+		color: #b2f5ff;
+	}
+}
 .post-content {
-	padding-top: 30px;
+	padding-top: 50px;
 	p {
 		max-width: 600px;
 		font-size: 18px;
@@ -209,7 +243,7 @@ li {
 }
 
 .cv {
-	padding-top: 30px;
+	padding-top: 60px;
 	h2 {
 		font-family: 'Unbuntu Mono', monospace;
 		font-size: 20px;
