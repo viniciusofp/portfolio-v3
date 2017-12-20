@@ -1,7 +1,6 @@
 var api = 'https://viniciusofp.com.br/wp-json/wp/v2/'
 var app = angular.module('app', ['ngRoute', 'ngResource', 'ngSanitize']);
 
-
 app.filter('toTrusted', function ($sce) {
     return function (value) {
         return $sce.trustAsHtml(value);
@@ -67,7 +66,6 @@ app.factory('wp', ['$q', '$resource', function($q, $resource) {
         });
         data[0][i].posts = tagPosts;
       }
-      console.log(data[0])
       Array.prototype.push.apply(results, data[0]);
     });
     return results
@@ -79,7 +77,6 @@ app.factory('wp', ['$q', '$resource', function($q, $resource) {
     $q.all([
         query.$promise,
     ]).then( function (data) {
-      console.log(data[0][0].id)
       var queryPosts = $resource(api + 'posts?tags=:tagid', {tagid: data[0][0].id}).query();
       $q.all([
           queryPosts.$promise,
@@ -111,12 +108,10 @@ app.factory('wp', ['$q', '$resource', function($q, $resource) {
     $q.all([
         queryPosts.$promise,
     ]).then( function (data) {
-      console.log(data[0][0].id)
       var queryPosts = $resource(api + 'posts?categories=:catid', {catid: data[0][0].id}).query();
       $q.all([
           queryPosts.$promise,
       ]).then( function (data) {
-        console.log(data)
         Array.prototype.push.apply(catPosts, data[0]);
       });
       data[0][0].posts = catPosts;
@@ -134,12 +129,9 @@ app.controller('Ctrl', ['$scope', 'wp', function($scope, wp) {
   $scope.posts = $scope.allPosts;
   $scope.tags = wp.queryTags();
   $scope.categories = wp.queryCategories();
-  $scope.log = function() {
-    console.log($scope.posts)
-  }
-  setTimeout(function() {
+
+  var setTags = function() {
     $scope.posts.forEach(function(post) {
-      console.log(post.slug)
       var tagsArray = []
       post.tags.forEach(function(tag) {
         var postTag = $scope.tags.filter(function(e) {
@@ -147,16 +139,48 @@ app.controller('Ctrl', ['$scope', 'wp', function($scope, wp) {
         })
         tagsArray.push(postTag[0])
       })
-      console.log(tagsArray)
       post.tagObjs = tagsArray;
     })
-  }, 1500)
-
-  $scope.scrollTo = function(hash) {
-    $(document.body).animate({
-        'scrollTop':   $('#posttop').offset().top
-    }, 2000);
   }
+  if ($scope.posts.length > 0) {
+    setTags();
+  } else {
+    setTimeout(function(){
+      if ($scope.posts.length > 0) {
+        setTags();
+      } else {
+        if ($scope.posts.length > 0) {
+          setTags();
+        } else {
+          setTimeout(function(){
+          setTags();
+          },1500)
+        }
+      }
+    },1500)
+  }
+
+
+  $scope.scrollTop = function(hash) {
+    function findPos(obj) {
+      var curtop = 0;
+      if (obj.offsetParent) {
+          do {
+              curtop += obj.offsetTop;
+          } while (obj = obj.offsetParent);
+      return [curtop];
+      }
+    }
+    window.scroll(0,findPos(document.getElementById("posttop")));
+  }
+
+  $scope.activateTag = function($event) {
+    $('li').removeClass('active-tag');
+    $($event.currentTarget).addClass('active-tag')
+    console.log( $($event.currentTarget).children('li'))
+
+  }
+
 }])
 app.controller('Home', ['$scope', 'wp', function($scope, wp) {
   $scope.posts = $scope.allPosts
@@ -179,7 +203,17 @@ app.controller('Cat', ['$scope', 'wp', '$routeParams', function($scope, wp, $rou
     setPosts();
   } else {
     setTimeout(function(){
-    setPosts();
+      if ($scope.posts.length > 0) {
+        setPosts();
+      } else {
+        if ($scope.posts.length > 0) {
+          setPosts();
+        } else {
+          setTimeout(function(){
+          setPosts();
+          },1500)
+        }
+      }
     },1500)
   }
 }])
@@ -197,14 +231,24 @@ app.controller('Tag', ['$scope', 'wp', '$routeParams', function($scope, wp, $rou
     })
     $scope.posts = tagPosts
   }
+
   if ($scope.posts.length > 0) {
     setPosts();
   } else {
     setTimeout(function(){
-    setPosts();
+      if ($scope.posts.length > 0) {
+        setPosts();
+      } else {
+        if ($scope.posts.length > 0) {
+          setPosts();
+        } else {
+          setTimeout(function(){
+          setPosts();
+          },1500)
+        }
+      }
     },1500)
   }
-  console.log($scope.posts.length)
 }])
 
 app.controller('Post', ['$scope', 'wp', '$routeParams', function($scope, wp, $routeParams) {
@@ -215,7 +259,24 @@ app.controller('Post', ['$scope', 'wp', '$routeParams', function($scope, wp, $ro
         post.push(e)
       }
     })
-    return post[0]
+    $scope.post = post[0]
   }
-  $scope.post = setPost();
+
+  if ($scope.posts.length > 0) {
+    setPost();
+  } else {
+    setTimeout(function(){
+      if ($scope.posts.length > 0) {
+        setPost();
+      } else {
+        if ($scope.posts.length > 0) {
+          setPost();
+        } else {
+          setTimeout(function(){
+          setPost();
+          },2000)
+        }
+      }
+    },2000)
+  }
 }])
