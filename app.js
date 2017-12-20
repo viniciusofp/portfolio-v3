@@ -1,4 +1,4 @@
-
+var postsJSON = [];
 
 var api = 'https://viniciusofp.com.br/wp-json/wp/v2/'
 var app = angular.module('app', ['ngRoute', 'ngResource', 'ngSanitize']);
@@ -47,6 +47,7 @@ app.factory('wp', ['$q', '$resource', function($q, $resource) {
       });
       Array.prototype.push.apply(results, data[0]);
     });
+    postsJSON = results
     return results
   }
   wp.queryTags = function() {
@@ -178,12 +179,6 @@ app.controller('Ctrl', ['$scope', 'wp', function($scope, wp) {
     window.history.back();
   }
 
-  $scope.activateTag = function($event) {
-    $('li').removeClass('active-tag');
-    $($event.currentTarget).addClass('active-tag')
-    console.log( $($event.currentTarget).children('li'))
-
-  }
 
 }])
 app.controller('Home', ['$scope', 'wp', function($scope, wp) {
@@ -191,6 +186,18 @@ app.controller('Home', ['$scope', 'wp', function($scope, wp) {
 }])
 app.controller('Cat', ['$scope', 'wp', '$routeParams', function($scope, wp, $routeParams) {
   $scope.section = wp.getCategory($routeParams.slug);
+
+    if ($scope.tags.length > 0) {
+    $scope.categories.forEach(function(category) {
+      if (category.id == $routeParams.id) {
+          $scope.section = category
+          console.log($scope.section)
+      }
+    })
+  } else {
+    $scope.section = wp.getCategory($routeParams.slug)[0];
+  }
+
   var setPosts = function() {
     var catPosts = []
     $scope.posts.forEach(function(e) {
@@ -222,7 +229,19 @@ app.controller('Cat', ['$scope', 'wp', '$routeParams', function($scope, wp, $rou
 }])
 app.controller('Tag', ['$scope', 'wp', '$routeParams', function($scope, wp, $routeParams) {
   $scope.title = $routeParams.slug
-  $scope.section = wp.getTag($routeParams.slug);
+
+  if ($scope.tags.length > 0) {
+    $scope.tags.forEach(function(tag) {
+      if (tag.id == $routeParams.id) {
+          $scope.section = tag
+          console.log($scope.section)
+      }
+    })
+  } else {
+    $scope.section = wp.getTag($routeParams.slug)[0];
+  }
+
+
   var setPosts = function() {
     var tagPosts = []
     $scope.posts.forEach(function(e) {
@@ -256,10 +275,26 @@ app.controller('Tag', ['$scope', 'wp', '$routeParams', function($scope, wp, $rou
 
 app.controller('Post', ['$scope', 'wp', '$routeParams', function($scope, wp, $routeParams) {
   var setPost = function() {
+    $scope.section = {}
+    $scope.relatedPosts = [];
+    var postCat = '';
     var post = []
     $scope.posts.forEach(function(e) {
       if (e.slug == $routeParams.slug) {
         post.push(e)
+        var postCat = e.categories[0]
+        $scope.categories.forEach(function(category) {
+          if (category.id == e.categories[0]) {
+              $scope.section = category
+              console.log($scope.section)
+          }
+        })
+        $scope.posts.forEach(function(post) {
+          if (post.categories[0] == postCat) {
+            $scope.relatedPosts.push(post)
+          }
+        })
+        console.log($scope.relatedPosts)
       }
     })
     $scope.post = post[0]

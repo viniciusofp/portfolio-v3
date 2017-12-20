@@ -38,6 +38,9 @@ h6 {
 a{
 	color: #1aabc5;
 }
+a:hover {
+	color: #00d8ff;
+}
 a:hover,
 a:active,
 a:visited,
@@ -57,7 +60,11 @@ li {
 		padding-right: 60px;
 	}
 }
-	
+
+.main-header {
+	height: 300px;
+}
+
 .welcomeimage {
 	border: 1px solid #ddd;
 	margin-top: 30px;
@@ -111,12 +118,12 @@ li {
 
 
 .posts-row {
-	padding-top: 60px;
+	padding-top: 30px;
 	padding-bottom: 60px;
-  background: #1aabc5;
+  background: #182c2f;
   color: #00778c;
-	a {
-		color: white;
+	h1 {
+		color: #b2f5ff;
 	}
 
 }
@@ -125,9 +132,21 @@ li {
 	margin: 0;
 	padding: 0;
 	& > li {
-		padding-top: 30px;
+		padding-top: 60px;
+	}
+	.tag-list {
 		padding-bottom: 30px;
-		border-bottom: 1px solid #32b4cc;
+		border-top: 1px solid #32b4cc;
+		padding-top: 15px
+
+	}
+}
+
+.tags-label {
+	border: none!important;
+	font-weight: 700;
+	&:hover {
+		background: transparent!important;
 	}
 }
 
@@ -144,7 +163,7 @@ li {
 }
 
 .chapeu {
-	opacity: .3;
+	opacity: 1;
 }
 
 .post-container {
@@ -165,7 +184,7 @@ li {
 .post-title {
 	color: #32b4cc;
 }
-.tags-label {
+.tags-label-post {
 	margin-top: 30px;
 	opacity: .5;
 }

@@ -36,6 +36,9 @@ h6 {
 a {
   color: #1aabc5; }
 
+a:hover {
+  color: #00d8ff; }
+
 a:hover,
 a:active,
 a:visited,
@@ -53,6 +56,9 @@ li {
   .container-fluid {
     padding-left: 60px;
     padding-right: 60px; } }
+.main-header {
+  height: 300px; }
+
 .welcomeimage {
   border: 1px solid #ddd;
   margin-top: 30px;
@@ -93,20 +99,28 @@ li {
     vertical-align: bottom; }
 
 .posts-row {
-  padding-top: 60px;
+  padding-top: 30px;
   padding-bottom: 60px;
-  background: #1aabc5;
+  background: #182c2f;
   color: #00778c; }
-  .posts-row a {
-    color: white; }
+  .posts-row h1 {
+    color: #b2f5ff; }
 
 .posts-list {
   margin: 0;
   padding: 0; }
   .posts-list > li {
-    padding-top: 30px;
+    padding-top: 60px; }
+  .posts-list .tag-list {
     padding-bottom: 30px;
-    border-bottom: 1px solid #32b4cc; }
+    border-top: 1px solid #32b4cc;
+    padding-top: 15px; }
+
+.tags-label {
+  border: none !important;
+  font-weight: 700; }
+  .tags-label:hover {
+    background: transparent !important; }
 
 .breadcrumbs {
   margin-top: 15px; }
@@ -118,7 +132,7 @@ li {
   margin-right: 15px; }
 
 .chapeu {
-  opacity: .3; }
+  opacity: 1; }
 
 .post-container {
   background: #fff;
@@ -136,7 +150,7 @@ li {
 .post-title {
   color: #32b4cc; }
 
-.tags-label {
+.tags-label-post {
   margin-top: 30px;
   opacity: .5; }
 
