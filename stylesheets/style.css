@@ -119,4 +119,32 @@ li {
 .chapeu {
   opacity: .3; }
 
+.post-container {
+  background: #fff;
+  text-align: center;
+  padding-bottom: 60px; }
+  .post-container img {
+    max-width: 100%;
+    height: auto; }
+  .post-container .tag-list {
+    border-bottom: 1px solid #dedede;
+    display: inline-block;
+    padding-bottom: 15; }
+
+.post-title {
+  color: #32b4cc; }
+
+.tags-label {
+  margin-top: 30px; }
+
+.post-content {
+  padding-top: 30px; }
+  .post-content p {
+    max-width: 600px;
+    font-size: 18px;
+    margin: 0 auto 30px; }
+    .post-content p.lead {
+      font-weight: bolder;
+      font-family: 'Ubuntu', sans-serif; }
+
 /*# sourceMappingURL=style.css.map */
