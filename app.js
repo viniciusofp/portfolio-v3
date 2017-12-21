@@ -143,7 +143,7 @@ app.controller('Ctrl', ['$scope', 'wp', function($scope, wp) {
   $scope.tags = wp.queryTags();
   $scope.categories = wp.queryCategories();
 
-  var setTags = function() {
+  var setTagsAndCat = function() {
     $scope.posts.forEach(function(post) {
       var tagsArray = []
       post.tags.forEach(function(tag) {
@@ -156,14 +156,14 @@ app.controller('Ctrl', ['$scope', 'wp', function($scope, wp) {
     })
   }
   if ($scope.posts.length > 0) {
-    setTags();
+    setTagsAndCat();
   } else {
     setTimeout(function(){
       if ($scope.posts.length > 0) {
-        setTags();
+        setTagsAndCat();
       } else {
         if ($scope.posts.length > 0) {
-          setTags();
+          setTagsAndCat();
         } else {
           setTimeout(function(){
           setTags();

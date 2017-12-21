@@ -5,7 +5,7 @@ strong {
 	font-weight: bolder
 }
 html {
-	font-size: 15px;
+	font-size: 17px;
 }
 body {
 	color: #666;
@@ -34,11 +34,19 @@ h1 {
 h6 {
 	font-size: 14px;
 }
+button {
+	cursor: pointer;
+}
 a{
 	color: #1aabc5;
 }
 a:hover {
-	color: #00d8ff;
+	color: #182c2f;
+}
+.posts-row a:hover,
+.main-header a:hover,
+.breadcrumbs-post-container a:hover {
+	color: #ffd800;
 }
 a:hover,
 a:active,
@@ -110,7 +118,6 @@ li {
 }
 
 .tag-list {
-	font-size:14px;
 	padding: 0;
 	li {
 		display: inline-block;
@@ -123,7 +130,7 @@ li {
 			margin-bottom: 0;
 		}
 		&:hover {
-			background: rgba(127,127,127, 0.1);
+			background: rgba(127,127,127, 0.15);
 		}
 	}
 	span {
@@ -143,9 +150,12 @@ li {
 	h1 {
 		color: #b2f5ff;
 		transition: 0.3s;
-		border-bottom: 1px solid #32b4cc;
+		border-bottom: 1px dashed #32b4cc;
 		padding-bottom: 15px;
 		display: inline-block;
+		&:hover {
+			background: rgba(0,0,0,.3)
+		}
 	}
 
 }
@@ -153,6 +163,9 @@ li {
 .posts-list {
 	margin: 0;
 	padding: 0;
+	h1 {
+		padding: 10px
+	}
 	h1:hover {
 		color: #fff;
 	}
@@ -195,6 +208,7 @@ li {
 
 .chapeu {
 	opacity: 1;
+	margin-bottom: 5px;
 }
 
 .post-container {
@@ -220,15 +234,17 @@ li {
 	opacity: .5;
 }
 .post-header{
-	margin-top: -43.5px;
 	h1 {
 		color: #b2f5ff;
+	}
+	@media all and (min-width: 768px) {
+		margin-top: -43.5px;
 	}
 }
 .post-content {
 	padding-top: 50px;
 	p {
-		max-width: 600px;
+		max-width: 720px;
 		font-size: 18px;
 		margin: 0 auto 30px;
 		&.lead {
